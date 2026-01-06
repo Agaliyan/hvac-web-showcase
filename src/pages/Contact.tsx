@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import { 
   Phone,
@@ -15,7 +14,8 @@ import {
   MapPin,
   CheckCircle,
   Star,
-  Zap
+  Zap,
+  ArrowRight
 } from 'lucide-react';
 
 const Contact = () => {
@@ -42,29 +42,25 @@ const Contact = () => {
       icon: Phone,
       title: "Call Us",
       details: "(555) 123-HVAC",
-      subtitle: "24/7 Emergency Service",
-      color: "text-accent"
+      subtitle: "24/7 Emergency Service"
     },
     {
       icon: Mail,
       title: "Email Us",
       details: "info@comfortcarehvac.com",
-      subtitle: "Response within 4 hours",
-      color: "text-primary"
+      subtitle: "Response within 4 hours"
     },
     {
       icon: MapPin,
       title: "Visit Us",
       details: "1234 Main Street, Suite 100",
-      subtitle: "Your City, State 12345",
-      color: "text-orange-600"
+      subtitle: "Your City, State 12345"
     },
     {
       icon: Clock,
       title: "Business Hours",
       details: "Mon-Fri: 7AM-6PM",
-      subtitle: "Sat: 8AM-4PM, Sun: On-call",
-      color: "text-secondary-600"
+      subtitle: "Sat: 8AM-4PM, Sun: On-call"
     }
   ];
 
@@ -89,41 +85,41 @@ const Contact = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-100">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="mb-6 bg-accent text-white text-lg px-6 py-2">
-            Get Your Free Quote Today
-          </Badge>
-          <h1 className="font-heading font-bold text-5xl md:text-6xl text-primary mb-6">
-            Contact ComfortCare
-          </h1>
-          <p className="text-xl md:text-2xl text-secondary-600 mb-8 max-w-3xl mx-auto">
-            Ready to improve your home's comfort? Get in touch with our expert team for a free consultation 
-            and discover how we can help you save money while staying comfortable.
-          </p>
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <span className="inline-block text-primary font-medium mb-4">Get Your Free Quote Today</span>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
+              Contact ComfortCare
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Ready to improve your home's comfort? Get in touch with our expert team for a free consultation 
+              and discover how we can help you save money while staying comfortable.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <Card className="shadow-xl">
-                <CardHeader>
-                  <CardTitle className="text-3xl font-heading text-primary">
+              <Card className="bg-background border-border rounded-3xl shadow-xl">
+                <CardHeader className="p-8 pb-0">
+                  <CardTitle className="font-serif text-3xl text-foreground">
                     Get Your Free Quote
                   </CardTitle>
-                  <p className="text-secondary-600">
+                  <p className="text-muted-foreground mt-2">
                     Fill out the form below and we'll contact you within 24 hours to discuss your HVAC needs.
                   </p>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <Label htmlFor="name">Full Name *</Label>
+                        <Label htmlFor="name" className="text-foreground mb-2 block">Full Name *</Label>
                         <Input
                           id="name"
                           type="text"
@@ -131,11 +127,11 @@ const Contact = () => {
                           value={formData.name}
                           onChange={(e) => setFormData({...formData, name: e.target.value})}
                           placeholder="Enter your full name"
-                          className="mt-1"
+                          className="rounded-xl border-border bg-card h-12"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="phone">Phone Number *</Label>
+                        <Label htmlFor="phone" className="text-foreground mb-2 block">Phone Number *</Label>
                         <Input
                           id="phone"
                           type="tel"
@@ -143,13 +139,13 @@ const Contact = () => {
                           value={formData.phone}
                           onChange={(e) => setFormData({...formData, phone: e.target.value})}
                           placeholder="(555) 123-4567"
-                          className="mt-1"
+                          className="rounded-xl border-border bg-card h-12"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email" className="text-foreground mb-2 block">Email Address *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -157,17 +153,17 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
                         placeholder="your.email@example.com"
-                        className="mt-1"
+                        className="rounded-xl border-border bg-card h-12"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="service">Service Needed</Label>
+                      <Label htmlFor="service" className="text-foreground mb-2 block">Service Needed</Label>
                       <Select value={formData.service} onValueChange={(value) => setFormData({...formData, service: value})}>
-                        <SelectTrigger className="mt-1">
+                        <SelectTrigger className="rounded-xl border-border bg-card h-12">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="rounded-xl">
                           <SelectItem value="ac-repair">Air Conditioning Repair</SelectItem>
                           <SelectItem value="heating-repair">Heating System Repair</SelectItem>
                           <SelectItem value="installation">New Installation</SelectItem>
@@ -180,21 +176,22 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="message">Message</Label>
+                      <Label htmlFor="message" className="text-foreground mb-2 block">Message</Label>
                       <Textarea
                         id="message"
                         value={formData.message}
                         onChange={(e) => setFormData({...formData, message: e.target.value})}
                         placeholder="Tell us about your HVAC needs, current issues, or any questions you have..."
-                        className="mt-1 min-h-[120px]"
+                        className="rounded-xl border-border bg-card min-h-[140px] resize-none"
                       />
                     </div>
 
-                    <Button type="submit" size="lg" className="w-full bg-accent hover:bg-accent-600">
+                    <Button type="submit" size="lg" className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 h-14 text-lg">
                       Get My Free Quote
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
 
-                    <p className="text-sm text-secondary-500 text-center">
+                    <p className="text-sm text-muted-foreground text-center">
                       By submitting this form, you agree to receive communications from ComfortCare HVAC. 
                       We respect your privacy and will never share your information.
                     </p>
@@ -205,38 +202,38 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div className="space-y-6">
-              <Card className="shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-xl font-heading text-primary">
+              <Card className="bg-background border-border rounded-2xl shadow-lg">
+                <CardHeader className="p-6 pb-0">
+                  <CardTitle className="font-serif text-2xl text-foreground">
                     Get In Touch
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="p-6 space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 rounded-lg bg-secondary-50 flex items-center justify-center ${info.color}`}>
-                        <info.icon className="h-6 w-6" />
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <info.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-primary">{info.title}</h3>
-                        <p className="text-secondary-700 font-medium">{info.details}</p>
-                        <p className="text-sm text-secondary-500">{info.subtitle}</p>
+                        <h3 className="font-semibold text-foreground">{info.title}</h3>
+                        <p className="text-foreground font-medium">{info.details}</p>
+                        <p className="text-sm text-muted-foreground">{info.subtitle}</p>
                       </div>
                     </div>
                   ))}
                 </CardContent>
               </Card>
 
-              <Card className="shadow-lg bg-accent text-white">
-                <CardHeader>
-                  <CardTitle className="text-xl font-heading">
+              <Card className="bg-secondary border-secondary rounded-2xl shadow-lg text-secondary-foreground">
+                <CardHeader className="p-6 pb-0">
+                  <CardTitle className="font-serif text-2xl">
                     Why Choose ComfortCare?
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="p-6 space-y-5">
                   {reasons.map((reason, index) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <reason.icon className="h-5 w-5 mt-0.5" />
+                      <reason.icon className="h-5 w-5 mt-0.5 text-primary" />
                       <div>
                         <h4 className="font-semibold">{reason.title}</h4>
                         <p className="text-sm opacity-90">{reason.description}</p>
@@ -251,35 +248,35 @@ const Contact = () => {
       </section>
 
       {/* Map Section */}
-      <section className="py-20 bg-secondary-50">
+      <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-4xl text-primary mb-4">
+            <h2 className="font-serif text-4xl text-foreground mb-4">
               Visit Our Location
             </h2>
-            <p className="text-xl text-secondary-600">
+            <p className="text-lg text-muted-foreground">
               Stop by our office to discuss your HVAC needs in person or schedule a home visit.
             </p>
           </div>
 
-          <Card className="overflow-hidden shadow-xl">
-            <div className="aspect-video bg-secondary-200 flex items-center justify-center relative">
+          <Card className="bg-card border-border rounded-3xl overflow-hidden shadow-xl">
+            <div className="aspect-video bg-muted flex items-center justify-center relative">
               {/* Placeholder for Google Maps */}
               <div className="text-center">
-                <MapPin className="h-16 w-16 text-secondary-400 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold text-secondary-600 mb-2">Interactive Map</h3>
-                <p className="text-secondary-500">
+                <MapPin className="h-16 w-16 text-muted-foreground/40 mx-auto mb-4" />
+                <h3 className="font-serif text-2xl text-muted-foreground mb-2">Interactive Map</h3>
+                <p className="text-muted-foreground">
                   1234 Main Street, Suite 100<br />
                   Your City, State 12345
                 </p>
               </div>
               
               {/* Overlay with contact info */}
-              <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg">
-                <h4 className="font-semibold text-primary mb-2">ComfortCare HVAC</h4>
-                <p className="text-sm text-secondary-600 mb-1">1234 Main Street, Suite 100</p>
-                <p className="text-sm text-secondary-600 mb-2">Your City, State 12345</p>
-                <p className="text-sm font-medium text-accent">(555) 123-HVAC</p>
+              <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-border">
+                <h4 className="font-serif text-xl text-foreground mb-2">ComfortCare HVAC</h4>
+                <p className="text-sm text-muted-foreground mb-1">1234 Main Street, Suite 100</p>
+                <p className="text-sm text-muted-foreground mb-2">Your City, State 12345</p>
+                <p className="text-sm font-medium text-primary">(555) 123-HVAC</p>
               </div>
             </div>
           </Card>
@@ -287,21 +284,21 @@ const Contact = () => {
       </section>
 
       {/* Emergency Service CTA */}
-      <section className="py-20 bg-red-600 text-white">
+      <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading font-bold text-4xl md:text-5xl mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl mb-6">
             Need Emergency Service?
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
+          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
             HVAC emergencies happen at the worst times. That's why we offer 24/7 emergency service 
             to get your system back up and running when you need it most.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-white text-red-600 hover:bg-secondary-100 text-lg px-8 py-4">
+            <Button size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 h-14 text-lg">
               <Phone className="h-5 w-5 mr-2" />
               Call (555) 123-HVAC
             </Button>
-            <div className="text-lg font-medium">
+            <div className="text-lg font-medium opacity-90">
               Available 24/7 for emergencies
             </div>
           </div>

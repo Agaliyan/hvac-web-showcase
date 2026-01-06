@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,73 +27,84 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-sm py-4'
+      isScrolled ? 'bg-card/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">CC</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-primary-foreground font-serif text-xl">CC</span>
             </div>
             <div>
-              <div className="font-heading font-bold text-xl text-primary">ComfortCare</div>
-              <div className="text-sm text-secondary-600 -mt-1">HVAC Services</div>
+              <div className="font-serif text-2xl text-foreground">ComfortCare</div>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`font-medium transition-colors hover:text-primary ${
+                className={`font-medium text-sm tracking-wide transition-colors hover:text-primary ${
                   location.pathname === item.path
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-secondary-700'
+                    ? 'text-primary'
+                    : 'text-foreground/80'
                 }`}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-accent hover:bg-accent-600">
-              <Link to="/contact">Get Free Quote</Link>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <Button asChild variant="outline" className="rounded-full border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
+              <Link to="/services">Our services</Link>
+            </Button>
+            <Button asChild className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Link to="/contact">Get a quote</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
-            size="sm"
-            className="md:hidden"
+            size="icon"
+            className="lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <Menu className="h-6 w-6" />
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </Button>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t">
+          <div className="lg:hidden mt-4 pb-4 border-t border-border">
             <div className="flex flex-col space-y-3 pt-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`font-medium px-2 py-1 rounded transition-colors ${
+                  className={`font-medium px-3 py-2 rounded-lg transition-colors ${
                     location.pathname === item.path
-                      ? 'text-primary bg-primary-50'
-                      : 'text-secondary-700 hover:text-primary'
+                      ? 'text-primary bg-primary/10'
+                      : 'text-foreground/80 hover:text-primary hover:bg-primary/5'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </Link>
               ))}
-              <Button asChild className="bg-accent hover:bg-accent-600 mt-2">
-                <Link to="/contact" onClick={() => setIsOpen(false)}>Get Free Quote</Link>
-              </Button>
+              <div className="flex flex-col space-y-2 pt-4">
+                <Button asChild variant="outline" className="rounded-full border-secondary text-secondary">
+                  <Link to="/services" onClick={() => setIsOpen(false)}>Our services</Link>
+                </Button>
+                <Button asChild className="rounded-full bg-primary text-primary-foreground">
+                  <Link to="/contact" onClick={() => setIsOpen(false)}>Get a quote</Link>
+                </Button>
+              </div>
             </div>
           </div>
         )}
