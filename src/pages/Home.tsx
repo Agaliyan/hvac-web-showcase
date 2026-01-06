@@ -16,6 +16,7 @@ import {
   Users,
   Award
 } from 'lucide-react';
+import RevealOnScroll from '@/components/RevealOnScroll';
 
 const Home = () => {
   const services = [
@@ -90,9 +91,7 @@ const Home = () => {
     }
   ];
 
-  const partners = [
-    "ASGARDIA", "Caven", "| Code.io", "hexa", "velocity"
-  ];
+  
 
   return (
     <div className="pt-20">
@@ -100,7 +99,7 @@ const Home = () => {
       <section className="py-16 md:py-24 bg-background relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
+            <RevealOnScroll>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6 leading-tight">
                 Delivering quality home HVAC solutions
               </h1>
@@ -115,8 +114,8 @@ const Home = () => {
                   <Link to="/contact">Get a quote</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="relative">
               <div className="relative z-10">
                 <img 
                   src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"
@@ -135,18 +134,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partners */}
-      <section className="py-8 bg-card border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50">
-            {partners.map((partner, index) => (
-              <span key={index} className="font-medium text-lg text-foreground/60">{partner}</span>
-            ))}
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -154,7 +142,7 @@ const Home = () => {
       {/* Services Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Expert home HVAC services
             </h2>
@@ -167,23 +155,25 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group bg-card border-border hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-7 w-7 text-primary" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-foreground mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-card border-border hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden h-full">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-2xl text-foreground mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -193,7 +183,7 @@ const Home = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <RevealOnScroll>
               <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
                 Decades of expert HVAC solutions
               </h2>
@@ -222,14 +212,14 @@ const Home = () => {
                   <Link to="/contact">Contact us</Link>
                 </Button>
               </div>
-            </div>
-            <div className="relative">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
                 alt="HVAC Installation"
                 className="rounded-3xl shadow-xl w-full h-[500px] object-cover"
               />
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -237,7 +227,7 @@ const Home = () => {
       {/* Recent Projects */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <RevealOnScroll className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div>
               <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
                 Our recent projects
@@ -252,11 +242,11 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {projects.map((project, index) => (
-              <div key={index} className="group cursor-pointer">
+              <RevealOnScroll key={index} delay={index * 100} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-2xl mb-4">
                   <img 
                     src={project.image}
@@ -268,7 +258,7 @@ const Home = () => {
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm">{project.description}</p>
-              </div>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -277,36 +267,38 @@ const Home = () => {
       {/* Testimonials */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <RevealOnScroll className="text-center mb-12">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
               Hear what our customers have to say
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We pride ourselves on delivering exceptional service and results that exceed expectations.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-background border-border rounded-2xl overflow-hidden">
-                <CardContent className="p-8">
-                  <Quote className="h-8 w-8 text-primary/30 mb-4" />
-                  <p className="text-foreground mb-6 leading-relaxed">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="flex items-center space-x-4">
-                    <img 
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-semibold text-foreground">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="bg-background border-border rounded-2xl overflow-hidden h-full">
+                  <CardContent className="p-8">
+                    <Quote className="h-8 w-8 text-primary/30 mb-4" />
+                    <p className="text-foreground mb-6 leading-relaxed">
+                      "{testimonial.text}"
+                    </p>
+                    <div className="flex items-center space-x-4">
+                      <img 
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover"
+                      />
+                      <div>
+                        <div className="font-semibold text-foreground">{testimonial.name}</div>
+                        <div className="text-sm text-muted-foreground">{testimonial.role}</div>
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -315,7 +307,7 @@ const Home = () => {
       {/* Articles */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <RevealOnScroll className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground">
               Browse our articles
             </h2>
@@ -325,30 +317,32 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {articles.map((article, index) => (
-              <Card key={index} className="group bg-card border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-64 md:h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-card border-border rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="grid grid-cols-1 md:grid-cols-2">
+                    <div className="relative overflow-hidden">
+                      <img 
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-64 md:h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <CardContent className="p-8 flex flex-col justify-center">
+                      <span className="text-sm text-primary font-medium mb-3">{article.tag}</span>
+                      <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {article.description}
+                      </p>
+                    </CardContent>
                   </div>
-                  <CardContent className="p-8 flex flex-col justify-center">
-                    <span className="text-sm text-primary font-medium mb-3">{article.tag}</span>
-                    <h3 className="font-serif text-xl text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">
-                      {article.description}
-                    </p>
-                  </CardContent>
-                </div>
-              </Card>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>

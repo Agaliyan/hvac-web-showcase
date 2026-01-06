@@ -15,6 +15,7 @@ import {
   Droplets,
   ArrowRight
 } from 'lucide-react';
+import RevealOnScroll from '@/components/RevealOnScroll';
 
 const Products = () => {
   const products = [
@@ -133,7 +134,7 @@ const Products = () => {
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <RevealOnScroll className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
               HVAC Products & Accessories
             </h1>
@@ -148,54 +149,56 @@ const Products = () => {
                 <Link to="/contact">Request Quote</Link>
               </Button>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Products Grid */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Our Product Lineup
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Choose from our carefully selected range of energy-efficient HVAC equipment designed for long-lasting comfort and reliability.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product, index) => (
-              <Card key={index} className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <product.icon className="h-7 w-7 text-primary" />
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
+                  <CardContent className="p-8">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <product.icon className="h-7 w-7 text-primary" />
+                      </div>
+                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        From {product.starting_price}
+                      </span>
                     </div>
-                    <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      From {product.starting_price}
-                    </span>
-                  </div>
-                  <h3 className="font-serif text-2xl text-foreground mb-4">{product.title}</h3>
-                  <p className="text-muted-foreground mb-6">{product.description}</p>
-                  <ul className="space-y-3 mb-6">
-                    {product.features.map((feature, i) => (
-                      <li key={i} className="flex items-center space-x-3">
-                        <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
-                        <span className="text-foreground text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="flex gap-3">
-                    <Button asChild className="flex-1 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                      <Link to="/contact">Get Quote</Link>
-                    </Button>
-                    <Button variant="outline" className="rounded-full border-border text-foreground hover:bg-muted">
-                      Details
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                    <h3 className="font-serif text-2xl text-foreground mb-4">{product.title}</h3>
+                    <p className="text-muted-foreground mb-6">{product.description}</p>
+                    <ul className="space-y-3 mb-6">
+                      {product.features.map((feature, i) => (
+                        <li key={i} className="flex items-center space-x-3">
+                          <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                          <span className="text-foreground text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex gap-3">
+                      <Button asChild className="flex-1 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                        <Link to="/contact">Get Quote</Link>
+                      </Button>
+                      <Button variant="outline" className="rounded-full border-border text-foreground hover:bg-muted">
+                        Details
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -204,16 +207,16 @@ const Products = () => {
       {/* Product Comparison */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Compare Our Systems
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Find the perfect HVAC system for your needs and budget with our easy comparison guide.
             </p>
-          </div>
+          </RevealOnScroll>
 
-          <div className="bg-card rounded-3xl shadow-lg overflow-hidden border border-border">
+          <RevealOnScroll delay={200} className="bg-card rounded-3xl shadow-lg overflow-hidden border border-border">
             <Table>
               <TableHeader>
                 <TableRow className="bg-secondary">
@@ -234,49 +237,51 @@ const Products = () => {
                 ))}
               </TableBody>
             </Table>
-          </div>
+          </RevealOnScroll>
 
-          <div className="text-center mt-10">
+          <RevealOnScroll delay={300} className="text-center mt-10">
             <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
               <Link to="/contact">Schedule Consultation</Link>
             </Button>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Accessories Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Accessories & Add-ons
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Enhance your HVAC system with smart accessories and air quality solutions for maximum comfort and efficiency.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {accessories.map((accessory, index) => (
-              <Card key={index} className="group bg-background border-border rounded-2xl text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                    <accessory.icon className="h-7 w-7 text-primary" />
-                  </div>
-                  <h3 className="font-serif text-xl text-foreground mb-4">
-                    {accessory.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-6">{accessory.description}</p>
-                  <ul className="space-y-2">
-                    {accessory.features.map((feature, i) => (
-                      <li key={i} className="flex items-center justify-center space-x-2">
-                        <CheckCircle className="h-4 w-4 text-secondary" />
-                        <span className="text-foreground text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-background border-border rounded-2xl text-center hover:shadow-lg transition-shadow h-full">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
+                      <accessory.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-xl text-foreground mb-4">
+                      {accessory.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-6">{accessory.description}</p>
+                    <ul className="space-y-2">
+                      {accessory.features.map((feature, i) => (
+                        <li key={i} className="flex items-center justify-center space-x-2">
+                          <CheckCircle className="h-4 w-4 text-secondary" />
+                          <span className="text-foreground text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -286,7 +291,7 @@ const Products = () => {
       <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <RevealOnScroll>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">
                 Financing Available
               </h2>
@@ -311,8 +316,8 @@ const Products = () => {
               <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
                 <Link to="/contact">Apply for Financing</Link>
               </Button>
-            </div>
-            <div className="bg-secondary-foreground/10 backdrop-blur-sm rounded-3xl p-8">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="bg-secondary-foreground/10 backdrop-blur-sm rounded-3xl p-8">
               <h3 className="font-serif text-2xl mb-6">Why Upgrade Now?</h3>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
@@ -332,7 +337,7 @@ const Products = () => {
                   <span>Enjoy smart home integration and convenience</span>
                 </li>
               </ul>
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>

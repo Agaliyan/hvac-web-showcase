@@ -16,6 +16,7 @@ import {
   Building2,
   ArrowRight
 } from 'lucide-react';
+import RevealOnScroll from '@/components/RevealOnScroll';
 
 const Services = () => {
   const services = [
@@ -79,7 +80,7 @@ const Services = () => {
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <RevealOnScroll className="max-w-4xl mx-auto text-center">
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
               HVAC Services & Support
             </h1>
@@ -94,44 +95,46 @@ const Services = () => {
                 <Link to="/contact">Get a quote</Link>
               </Button>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Services Grid */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Our Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               From emergency repairs to new installations, we provide complete HVAC solutions for your home or business.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card key={index} className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-7 w-7 text-primary" />
-                  </div>
-                  <h3 className="font-serif text-2xl text-foreground mb-4">{service.title}</h3>
-                  <p className="text-muted-foreground mb-6">{service.description}</p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center space-x-3">
-                        <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
-                        <span className="text-foreground text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild className="w-full mt-8 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                    <Link to="/contact">Get Quote</Link>
-                  </Button>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-2xl text-foreground mb-4">{service.title}</h3>
+                    <p className="text-muted-foreground mb-6">{service.description}</p>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, i) => (
+                        <li key={i} className="flex items-center space-x-3">
+                          <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                          <span className="text-foreground text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button asChild className="w-full mt-8 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
+                      <Link to="/contact">Get Quote</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -141,7 +144,7 @@ const Services = () => {
       <section className="py-20 bg-primary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <RevealOnScroll>
               <div className="flex items-center space-x-3 mb-6">
                 <div className="w-12 h-12 bg-primary-foreground/20 rounded-full flex items-center justify-center">
                   <AlertCircle className="h-6 w-6 text-primary-foreground" />
@@ -177,8 +180,8 @@ const Services = () => {
                   <Link to="/contact">Request Emergency Service</Link>
                 </Button>
               </div>
-            </div>
-            <div className="bg-primary-foreground/10 backdrop-blur-sm p-8 rounded-3xl">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="bg-primary-foreground/10 backdrop-blur-sm p-8 rounded-3xl">
               <h3 className="font-serif text-2xl text-primary-foreground mb-6">
                 Common HVAC Emergencies
               </h3>
@@ -196,7 +199,7 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -204,16 +207,16 @@ const Services = () => {
       {/* FAQ Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Get answers to common questions about our HVAC services and maintenance.
             </p>
-          </div>
+          </RevealOnScroll>
 
-          <div className="max-w-4xl mx-auto">
+          <RevealOnScroll delay={200} className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-2xl border border-border px-6 overflow-hidden">
@@ -226,37 +229,41 @@ const Services = () => {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Financing Section */}
       <section className="py-20 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6">
-            Flexible Financing Options
-          </h2>
-          <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
-            Don't let budget concerns delay necessary HVAC repairs or upgrades. We offer flexible financing 
-            solutions to help you get the comfort you need today.
-          </p>
+          <RevealOnScroll>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6">
+              Flexible Financing Options
+            </h2>
+            <p className="text-xl mb-12 max-w-3xl mx-auto opacity-90">
+              Don't let budget concerns delay necessary HVAC repairs or upgrades. We offer flexible financing 
+              solutions to help you get the comfort you need today.
+            </p>
+          </RevealOnScroll>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
+            <RevealOnScroll delay={100} className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
               <h3 className="font-serif text-2xl mb-3">0% Interest</h3>
               <p className="opacity-90">Available for qualifying purchases with approved credit</p>
-            </div>
-            <div className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
               <h3 className="font-serif text-2xl mb-3">Low Monthly Payments</h3>
               <p className="opacity-90">Spread the cost over time with affordable payment plans</p>
-            </div>
-            <div className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
+            </RevealOnScroll>
+            <RevealOnScroll delay={300} className="bg-secondary-foreground/10 backdrop-blur-sm rounded-2xl p-8">
               <h3 className="font-serif text-2xl mb-3">Quick Approval</h3>
               <p className="opacity-90">Fast and easy application process with instant decisions</p>
-            </div>
+            </RevealOnScroll>
           </div>
-          <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
-            <Link to="/contact">Learn About Financing</Link>
-          </Button>
+          <RevealOnScroll delay={400}>
+            <Button asChild size="lg" className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+              <Link to="/contact">Learn About Financing</Link>
+            </Button>
+          </RevealOnScroll>
         </div>
       </section>
     </div>

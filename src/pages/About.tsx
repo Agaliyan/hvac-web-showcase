@@ -12,6 +12,7 @@ import {
   Star,
   ArrowRight
 } from 'lucide-react';
+import RevealOnScroll from '@/components/RevealOnScroll';
 
 const About = () => {
   const teamMembers = [
@@ -99,7 +100,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <RevealOnScroll className="max-w-4xl mx-auto text-center">
             <span className="inline-block text-primary font-medium mb-4">15+ Years of Excellence</span>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
               About ComfortCare HVAC
@@ -108,7 +109,7 @@ const About = () => {
               Your trusted local HVAC partner, dedicated to keeping your home comfortable while providing 
               exceptional service and energy-efficient solutions.
             </p>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -116,7 +117,7 @@ const About = () => {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <RevealOnScroll>
               <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
                 Our Story
               </h2>
@@ -142,8 +143,8 @@ const About = () => {
               <Button asChild size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8">
                 <Link to="/contact">Work With Us</Link>
               </Button>
-            </div>
-            <div className="relative">
+            </RevealOnScroll>
+            <RevealOnScroll delay={200} className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80"
                 alt="ComfortCare Team"
@@ -160,7 +161,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </RevealOnScroll>
           </div>
         </div>
       </section>
@@ -168,55 +169,61 @@ const About = () => {
       {/* Mission & Values */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Our Mission & Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We're guided by core values that ensure every customer receives the highest quality service and support.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Shield className="h-8 w-8 text-secondary" />
-                </div>
-                <h3 className="font-serif text-2xl text-foreground mb-4">Integrity</h3>
-                <p className="text-muted-foreground">
-                  We believe in honest communication, transparent pricing, and doing what's right for our customers.
-                </p>
-              </CardContent>
-            </Card>
+            <RevealOnScroll delay={100}>
+              <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow h-full">
+                <CardContent className="pt-0">
+                  <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Shield className="h-8 w-8 text-secondary" />
+                  </div>
+                  <h3 className="font-serif text-2xl text-foreground mb-4">Integrity</h3>
+                  <p className="text-muted-foreground">
+                    We believe in honest communication, transparent pricing, and doing what's right for our customers.
+                  </p>
+                </CardContent>
+              </Card>
+            </RevealOnScroll>
 
-            <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Award className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="font-serif text-2xl text-foreground mb-4">Excellence</h3>
-                <p className="text-muted-foreground">
-                  We're committed to the highest standards of workmanship and continuous improvement.
-                </p>
-              </CardContent>
-            </Card>
+            <RevealOnScroll delay={200}>
+              <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow h-full">
+                <CardContent className="pt-0">
+                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Award className="h-8 w-8 text-primary" />
+                  </div>
+                  <h3 className="font-serif text-2xl text-foreground mb-4">Excellence</h3>
+                  <p className="text-muted-foreground">
+                    We're committed to the highest standards of workmanship and continuous improvement.
+                  </p>
+                </CardContent>
+              </Card>
+            </RevealOnScroll>
 
-            <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow">
-              <CardContent className="pt-0">
-                <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <Users className="h-8 w-8 text-secondary" />
-                </div>
-                <h3 className="font-serif text-2xl text-foreground mb-4">Community</h3>
-                <p className="text-muted-foreground">
-                  We're your neighbors, and we care about our community. We support local charities and give back.
-                </p>
-              </CardContent>
-            </Card>
+            <RevealOnScroll delay={300}>
+              <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow h-full">
+                <CardContent className="pt-0">
+                  <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Users className="h-8 w-8 text-secondary" />
+                  </div>
+                  <h3 className="font-serif text-2xl text-foreground mb-4">Community</h3>
+                  <p className="text-muted-foreground">
+                    We're your neighbors, and we care about our community. We support local charities and give back.
+                  </p>
+                </CardContent>
+              </Card>
+            </RevealOnScroll>
           </div>
 
           {/* Timeline */}
-          <div className="bg-card rounded-3xl p-8 md:p-12 border border-border">
+          <RevealOnScroll delay={400} className="bg-card rounded-3xl p-8 md:p-12 border border-border">
             <h3 className="font-serif text-3xl text-foreground mb-10 text-center">Our Journey</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
               {milestones.map((milestone, index) => (
@@ -228,40 +235,42 @@ const About = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Team Section */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Meet Our Team
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Our experienced professionals are dedicated to providing you with the best HVAC service possible.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
-              <Card key={index} className="bg-background border-border rounded-2xl text-center overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative">
-                  <img 
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-72 object-cover"
-                  />
-                </div>
-                <CardContent className="p-8">
-                  <h3 className="font-serif text-2xl text-foreground mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-primary font-medium mb-4">{member.title}</p>
-                  <p className="text-muted-foreground text-sm">{member.bio}</p>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="bg-background border-border rounded-2xl text-center overflow-hidden hover:shadow-xl transition-shadow h-full">
+                  <div className="relative">
+                    <img 
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-72 object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-8">
+                    <h3 className="font-serif text-2xl text-foreground mb-2">
+                      {member.name}
+                    </h3>
+                    <p className="text-primary font-medium mb-4">{member.title}</p>
+                    <p className="text-muted-foreground text-sm">{member.bio}</p>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -270,30 +279,32 @@ const About = () => {
       {/* Certifications */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <RevealOnScroll className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-6">
               Certifications & Affiliations
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               We maintain the highest industry standards through ongoing training and certifications.
             </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {certifications.map((cert, index) => (
-              <Card key={index} className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow">
-                <CardContent className="pt-0">
-                  <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <cert.icon className="h-7 w-7 text-primary" />
-                  </div>
-                  <h3 className="font-serif text-xl text-foreground mb-3">
-                    {cert.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {cert.description}
-                  </p>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="bg-card border-border rounded-2xl text-center p-8 hover:shadow-lg transition-shadow h-full">
+                  <CardContent className="pt-0">
+                    <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <cert.icon className="h-7 w-7 text-primary" />
+                    </div>
+                    <h3 className="font-serif text-xl text-foreground mb-3">
+                      {cert.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      {cert.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -302,7 +313,7 @@ const About = () => {
       {/* Recent Projects */}
       <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <RevealOnScroll className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
             <div>
               <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-4">
                 Recent Projects
@@ -311,26 +322,28 @@ const About = () => {
                 See examples of our quality workmanship and commitment to customer satisfaction.
               </p>
             </div>
-          </div>
+          </RevealOnScroll>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <Card key={index} className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <CardContent className="p-8">
-                  <h3 className="font-serif text-2xl text-foreground mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-3">{project.description}</p>
-                  <p className="text-sm text-primary font-medium">{project.details}</p>
-                </CardContent>
-              </Card>
+              <RevealOnScroll key={index} delay={index * 100}>
+                <Card className="group bg-background border-border rounded-2xl overflow-hidden hover:shadow-xl transition-shadow h-full">
+                  <div className="relative overflow-hidden">
+                    <img 
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+                  <CardContent className="p-8">
+                    <h3 className="font-serif text-2xl text-foreground mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-3">{project.description}</p>
+                    <p className="text-sm text-primary font-medium">{project.details}</p>
+                  </CardContent>
+                </Card>
+              </RevealOnScroll>
             ))}
           </div>
         </div>
@@ -339,21 +352,23 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl mb-6">
-            Ready to Experience the ComfortCare Difference?
-          </h2>
-          <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
-            Join thousands of satisfied customers who trust ComfortCare for their heating and cooling needs. 
-            Contact us today for your free consultation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8">
-              <Link to="/contact">Get Free Consultation</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="rounded-full border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8">
-              <Link to="/services">View Our Services</Link>
-            </Button>
-          </div>
+          <RevealOnScroll>
+            <h2 className="font-serif text-4xl md:text-5xl mb-6">
+              Ready to Experience the ComfortCare Difference?
+            </h2>
+            <p className="text-xl mb-10 max-w-3xl mx-auto opacity-90">
+              Join thousands of satisfied customers who trust ComfortCare for their heating and cooling needs. 
+              Contact us today for your free consultation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8">
+                <Link to="/contact">Get Free Consultation</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-8">
+                <Link to="/services">View Our Services</Link>
+              </Button>
+            </div>
+          </RevealOnScroll>
         </div>
       </section>
     </div>
