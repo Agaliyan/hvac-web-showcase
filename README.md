@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/shadcn/ui-Components-000000?style=for-the-badge&logo=shadcnui&logoColor=white" alt="shadcn/ui" />
+</p>
 
-## Project info
+# ❄️ ComfortCare HVAC — Professional Heating & Cooling Website
 
-**URL**: https://lovable.dev/projects/499509a0-9d65-4b49-a990-13d60e37e30a
+A modern, fully responsive marketing website for **ComfortCare HVAC Services** — a fictional HVAC company. Built with React, TypeScript, Tailwind CSS, and shadcn/ui, this project showcases a premium multi-page business website with smooth scroll-reveal animations, a custom design system, and a live chat widget.
 
-## How can I edit this code?
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## 📸 Overview
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/499509a0-9d65-4b49-a990-13d60e37e30a) and start prompting.
+ComfortCare HVAC is a **5-page** single-page application (SPA) designed to demonstrate a complete, production-ready business website for an HVAC service company. The site features a warm cream-and-teal color palette, elegant serif typography (DM Serif Display), and smooth entrance animations powered by Intersection Observer.
 
-Changes made via Lovable will be committed automatically to this repo.
+### Pages
 
-**Use your preferred IDE**
+| Page | Route | Description |
+|------|-------|-------------|
+| **Home** | `/` | Hero section, services overview, recent projects, customer testimonials, and articles |
+| **Services** | `/services` | Detailed service cards, 24/7 emergency support section, FAQ accordion, and financing options |
+| **Products** | `/products` | Product catalog with pricing, 3-tier comparison table, accessories grid, and financing CTA |
+| **About** | `/about` | Company story, mission & values, team profiles, certifications, project showcase, and timeline |
+| **Contact** | `/contact` | Quote request form with validation, contact info cards, embedded Google Maps, and emergency CTA |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Key Features
 
-Follow these steps:
+- **🎨 Custom Design System** — Warm cream/teal/orange color palette with HSL CSS custom properties, supporting both light and dark modes
+- **📱 Fully Responsive** — Mobile-first design with a collapsible hamburger navigation and responsive grid layouts
+- **🎬 Scroll-Reveal Animations** — `RevealOnScroll` component using Intersection Observer for staggered fade-in-up entrance effects
+- **💬 Live Chat Widget** — Floating chat bubble with an expandable conversation UI (front-end demo)
+- **📋 Contact Form** — Full quote-request form with service dropdown selector, input validation, and toast notifications
+- **🗺️ Embedded Google Maps** — Interactive map with a branded overlay card on the Contact page
+- **🔍 SEO Optimized** — Proper meta tags, Open Graph metadata, semantic HTML, and descriptive page titles
+- **⬆️ Scroll-to-Top** — Automatic scroll restoration on route changes
+- **🧩 49 shadcn/ui Components** — Comprehensive component library including Accordion, Dialog, Toast, Tabs, Table, and more
+- **🌙 Dark Mode Ready** — Full dark mode token set defined in CSS custom properties
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/499509a0-9d65-4b49-a990-13d60e37e30a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+| Category | Technology |
+|----------|-----------|
+| **Framework** | [React 18](https://react.dev/) |
+| **Language** | [TypeScript 5.5](https://www.typescriptlang.org/) |
+| **Build Tool** | [Vite 5](https://vitejs.dev/) with [SWC](https://swc.rs/) compiler |
+| **Styling** | [Tailwind CSS 3.4](https://tailwindcss.com/) + [tailwindcss-animate](https://github.com/jamiebuilds/tailwindcss-animate) |
+| **UI Components** | [shadcn/ui](https://ui.shadcn.com/) (Radix UI primitives) |
+| **Routing** | [React Router DOM 6](https://reactrouter.com/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **State Management** | [TanStack React Query 5](https://tanstack.com/query) |
+| **Form Handling** | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) validation |
+| **Notifications** | [Sonner](https://sonner.emilkowal.dev/) + Radix Toast |
+| **Typography** | [Inter](https://fonts.google.com/specimen/Inter) (sans) + [DM Serif Display](https://fonts.google.com/specimen/DM+Serif+Display) (serif) via Google Fonts |
+| **Linting** | [ESLint 9](https://eslint.org/) with React Hooks & React Refresh plugins |
